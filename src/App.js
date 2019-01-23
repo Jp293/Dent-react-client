@@ -2,12 +2,20 @@ import React, { Component } from 'react'
 import './App.scss'
 import { Route, Link } from 'react-router-dom'
 
-import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
+import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
+
+import ResourcedRoute from './teeth/components/ResourcedRoute'
+import CreateLog from './teeth/components/CreateLog'
+import GetLog from './teeth/components/GetLog'
+import DestroyLog from './teeth/components/DestroyLog'
+import UpdateLog from './teeth/components/UpdateLog'
+
+
 
 class App extends Component {
   constructor () {
@@ -40,7 +48,7 @@ class App extends Component {
       <React.Fragment>
         <Header user={user} />
         {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
-        
+
         <main className="container">
           <Route path='/sign-up' render={() => (
             <SignUp flash={this.flash} setUser={this.setUser} />
