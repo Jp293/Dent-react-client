@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import { CreateLog } from '../teethApi'
+import { CreateLogApi } from '../teethApi'
 import messages from '../teethMessages'
 import apiUrl from '../../apiConfig'
 
@@ -46,22 +46,40 @@ class CreateLog extends Component {
     return (
       <form className='create-form' onSubmit={this.CreateLog}>
         <h3>Create Log</h3>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="pain_level">Pain Level</label>
         <input
           required
-          type="email"
-          name="email"
-          value={email}
-          placeholder="Email"
+          type="pain_level"
+          name="pain_level"
+          value={pain_level}
+          placeholder="Pain Level"
           onChange={this.handleChange}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="sensitivity">Sensitivity</label>
         <input
           required
-          name="password"
-          value={password}
-          type="password"
-          placeholder="Password"
+          name="sensitivity"
+          value={sensitivity}
+          type="sensitivity"
+          placeholder="Sensitivity"
+          onChange={this.handleChange}
+        />
+        <label htmlFor="how_long">How Long</label>
+        <input
+          required
+          name="how_long"
+          value={how_long}
+          type="how_long"
+          placeholder="How Long"
+          onChange={this.handleChange}
+        />
+        <label htmlFor="medications">Medications</label>
+        <input
+          required
+          name="medications"
+          value={medications}
+          type="medications"
+          placeholder="Medications"
           onChange={this.handleChange}
         />
         <button type="submit">Create Log</button>
@@ -70,4 +88,4 @@ class CreateLog extends Component {
   }
 }
 
-export default withRouter(SignIn)
+export default withRouter(CreateLog)

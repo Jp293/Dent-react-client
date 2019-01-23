@@ -8,7 +8,7 @@ export const handleErrors = res => {
   }
 }
 
-export const CreateLog = dent => {
+export const CreateLogApi = dent => {
   return fetch(apiUrl + '/dents', {
     method: 'POST',
     headers: {
@@ -27,7 +27,7 @@ export const CreateLog = dent => {
   })
 }
 
-export const GetLog = dent => {
+export const GetLogApi = dent => {
   return fetch(apiUrl + '/dents', {
     method: 'GET',
     headers: {
@@ -38,7 +38,7 @@ export const GetLog = dent => {
   })
 }
 
-export const DestroyLog = dent => {
+export const DestroyLogApi = dent => {
   // Is the syntax below correct? Double Check
   return fetch(apiUrl + `/dents/${id}`, {
     method: 'DELETE',
@@ -49,7 +49,7 @@ export const DestroyLog = dent => {
   })
 }
 
-export const UpdateLog = dent => {
+export const UpdateLogApi = dent => {
   return fetch(apiUrl + `/dents/${id}`, {
     method: 'PATCH',
     headers: {
