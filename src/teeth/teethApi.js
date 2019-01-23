@@ -40,7 +40,7 @@ export const GetLog = dent => {
 
 export const DestroyLog = dent => {
   // Is the syntax below correct? Double Check
-  return fetch(apiUrl + `/dents/${ID}`, {
+  return fetch(apiUrl + `/dents/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export const DestroyLog = dent => {
 }
 
 export const UpdateLog = dent => {
-  return fetch(apiUrl + `/dents/${ID}`, {
+  return fetch(apiUrl + `/dents/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

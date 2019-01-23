@@ -9,7 +9,6 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 
-import ResourcedRoute from './teeth/components/ResourcedRoute'
 import CreateLog from './teeth/components/CreateLog'
 import GetLog from './teeth/components/GetLog'
 import DestroyLog from './teeth/components/DestroyLog'
@@ -61,6 +60,18 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/dents' render={() => (
+            <CreateLog flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/dents' render={() => (
+            <GetLog flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/dents/:id' render={() => (
+            <UpdateLog flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/dents/:id' render={() => (
+            <DestroyLog flash={this.flash} user={user} />
           )} />
         </main>
       </React.Fragment>
