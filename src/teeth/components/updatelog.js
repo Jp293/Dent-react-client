@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
-
-import { updateLogApi } from '../teethApi'
-import teethMessages from '../logMessages'
+import { withRouter, Redirect } from 'react-router-dom'
+import { handleErrors, updateLogApi } from '../teethApi'
+import logMessages from '../logMessages'
 import apiUrl from '../../apiConfig'
+import DentalForm from './DentalForm'
 
 
 class UpdateLog extends Component {
@@ -41,58 +41,17 @@ class UpdateLog extends Component {
   }
 
   render () {
-    const { id } = this.state
-
+    const id = this.props.match.params.id
+    if (this.state.updated) {
+      return <Redirect to={`/dents/${id}`}/>
+    }
+    const {pain_level, sensitivity, how_long, medications, notes} = this.state.dent
     return (
-      <form className='update-form' onSubmit={this.handleSubmit}>
-        <h3>Update Log</h3>
-        <label htmlFor="pain_level">Pain Level</label>
-        <input
-          required
-          type="pain_level"
-          name="pain_level"
-          value={this.state.dent.pain_level}
-          placeholder="Pain Level"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="sensitivity">Sensitivity</label>
-        <input
-          required
-          name="sensitivity"
-          value={this.state.dent.sensitivity}
-          type="sensitivity"
-          placeholder="Sensitivity"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="how_long">How Long</label>
-        <input
-          required
-          name="how_long"
-          value={this.state.dent.how_long}
-          type="how_long"
-          placeholder="How Long"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="medications">Medications</label>
-        <input
-          required
-          name="medications"
-          value={this.state.dent.medications}
-          type="medications"
-          placeholder="Medications"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="notes">Notes</label>
-        <input
-          required
-          name="notes"
-          value={this.state.dent.notes}
-          type="notes"
-          placeholder="Notes"
-          onChange={this.handleChange}
-        />
-        <button type="submit">Update Log</button>
-      </form>
+      <DentalForm
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        dent={this.state.dent} />
+
     )
   }
 }

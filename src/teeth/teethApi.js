@@ -27,7 +27,7 @@ export const createLogApi = (dent, user) => {
   })
 }
 // Might need to check arguments for validation of api functions)
-export const getLogApi = user => {
+export const getLogApi = (dent, user) => {
   return fetch(apiUrl + '/dents', {
     method: 'GET',
     headers: {
@@ -37,9 +37,19 @@ export const getLogApi = user => {
   })
 }
 
+export const showLogApi = (user) => {
+  return fetch(apiUrl + `/dents/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization':`Token token=${user.token}`
+    },
+  })
+}
+
+
 export const destroyLogApi = user => {
-  // Is the syntax below correct? Double Check
-  return fetch(apiUrl + `/dents/${ID}`, {
+  return fetch(apiUrl + `/dents/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -49,7 +59,7 @@ export const destroyLogApi = user => {
 }
 
 export const updateLogApi = (user, dent) => {
-  return fetch(apiUrl + `/dents/${ID}`, {
+  return fetch(apiUrl + `/dents/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
