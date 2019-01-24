@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import { handleErrors, createLogApi } from '../teethApi'
-import logMessages from '../logMessages'
+import { updateLogApi } from '../teethApi'
+import teethMessages from '../teethMessages'
 import apiUrl from '../../apiConfig'
 
 
-class CreateLog extends Component {
+class UpdateLog extends Component {
   constructor (props) {
     super(props)
 
@@ -18,9 +18,7 @@ class CreateLog extends Component {
         how_long: '',
         medications: '',
         notes: ''
-      },
-      user: props.user,
-      created: false
+      }
     }
   }
 
@@ -32,24 +30,22 @@ class CreateLog extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    const {flash, user} = this.props
-    const { dent  } = this.state
 
-    createLogApi(this.state.dent, user)
+    createLogApi(this.state.dent, this.props.user, this.props.flash)
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
-      .then(() => flash(logMessages.createLogSuccess, 'flash-success'))
+      .then(res => setUser(res.user))
+      .then(() => flash(teethMessages.updateLogSuccess, 'flash-success'))
       .then(() => history.push('/'))
-      .catch(console.log)
-      .catch(() => flash(logMessages.logFailure, 'flash-error'))
+      .catch(() => flash(teethMessages.logFailure, 'flash-error'))
   }
 
   render () {
     const { id } = this.state
 
     return (
-      <form className='create-form' onSubmit={this.handleSubmit}>
-        <h3>Create Log</h3>
+      <form className='update-form' onSubmit={this.handleSubmit}>
+        <h3>Update Log</h3>
         <label htmlFor="pain_level">Pain Level</label>
         <input
           required
@@ -95,10 +91,10 @@ class CreateLog extends Component {
           placeholder="Notes"
           onChange={this.handleChange}
         />
-        <button type="submit">Create Log</button>
+        <button type="submit">Update Log</button>
       </form>
     )
   }
 }
 
-export default withRouter(CreateLog)
+export default withRouter(UpdateLog)

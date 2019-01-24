@@ -8,7 +8,7 @@ export const handleErrors = res => {
   }
 }
 
-export const CreateLogApi = dent => {
+export const createLogApi = (dent, user) => {
   return fetch(apiUrl + '/dents', {
     method: 'POST',
     headers: {
@@ -26,21 +26,20 @@ export const CreateLogApi = dent => {
     })
   })
 }
-
-export const GetLogApi = dent => {
+// Might need to check arguments for validation of api functions)
+export const getLogApi = user => {
   return fetch(apiUrl + '/dents', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       'Authorization':`Token token=${user.token}`
     },
-    // body: JSON.stringify({})
   })
 }
 
-export const DestroyLogApi = dent => {
+export const destroyLogApi = user => {
   // Is the syntax below correct? Double Check
-  return fetch(apiUrl + `/dents/${id}`, {
+  return fetch(apiUrl + `/dents/${ID}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -49,8 +48,8 @@ export const DestroyLogApi = dent => {
   })
 }
 
-export const UpdateLogApi = dent => {
-  return fetch(apiUrl + `/dents/${id}`, {
+export const updateLogApi = (user, dent) => {
+  return fetch(apiUrl + `/dents/${ID}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
