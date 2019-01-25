@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
+import { Link } from 'react-router-dom'
 import { handleErrors, getLogApi } from '../teethApi'
 import logMessages from '../logMessages'
 import apiUrl from '../../apiConfig'
@@ -10,7 +11,7 @@ class GetLog extends Component {
     super(props)
 
     this.state = {
-      dent: null,
+      dents: null,
       notFound: false,
       deleted: false
     }
@@ -18,24 +19,22 @@ class GetLog extends Component {
   componentDidMount () {
     const id = this.props.match.params.id
 
-    getLogApi(this.state.dent, this.props.user)
+    getLogApi(this.state.dents, this.props.user)
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
       .then(data => console.log(data) || data)
-      .then(data => this.setState({ dent: data.dents }))
+      .then(data => this.setState({ dents: data.dents }))
       .catch(() => this.setState({ notFound: true }))
       .catch(() => flash(logMessages.logFailure, 'flash-error'))
   }
 
   render () {
-
-    console.log(this.state.dent)
-    if (!this.state.dent) {
+    if (!this.state.dents) {
       return <p>loading...</p>
     }
-    const logs = this.state.dent.map(dents => (
+    const dents = this.state.dents.map(dent => (
       <li key={dent.id}>
-        <Link to={'/dents/'}>{dents.id}</Link>
+        <Link to={`/dents/${dent.id}`}>{dent.id}</Link>
       </li>
     ))
 
@@ -43,7 +42,7 @@ class GetLog extends Component {
       <React.Fragment>
         <h4>Dental Logs:</h4>
         <ul>
-          {dent}
+          {dents}
         </ul>
       </React.Fragment>
     )

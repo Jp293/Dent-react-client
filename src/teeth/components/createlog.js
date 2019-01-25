@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
-
+import { withRouter } from 'react-router'
 import { handleErrors, createLogApi } from '../teethApi'
 import logMessages from '../logMessages'
 import apiUrl from '../../apiConfig'
@@ -39,6 +38,7 @@ class CreateLog extends Component {
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
       .then(() => flash(logMessages.createLogSuccess, 'flash-success'))
+      // Do I even need history.push?
       .then(() => history.push('/'))
       .catch(console.log)
       .catch(() => flash(logMessages.logFailure, 'flash-error'))
