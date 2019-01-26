@@ -37,7 +37,7 @@ export const getLogApi = (dent, user) => {
   })
 }
 
-export const showLogApi = (user) => {
+export const indexLogApi = (user, id) => {
   return fetch(apiUrl + `/dents/${id}`, {
     method: 'GET',
     headers: {
@@ -48,7 +48,7 @@ export const showLogApi = (user) => {
 }
 
 
-export const destroyLogApi = user => {
+export const destroyLogApi = (user, id) => {
   return fetch(apiUrl + `/dents/${id}`, {
     method: 'DELETE',
     headers: {
@@ -58,7 +58,7 @@ export const destroyLogApi = user => {
   })
 }
 
-export const updateLogApi = (user, dent) => {
+export const updateLogApi = (user, dent, id) => {
   return fetch(apiUrl + `/dents/${id}`, {
     method: 'PATCH',
     headers: {

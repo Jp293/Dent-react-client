@@ -13,7 +13,7 @@ class GetLog extends Component {
     this.state = {
       dents: null,
       notFound: false,
-      deleted: false
+      deleted: false,
     }
   }
   componentDidMount () {
@@ -22,7 +22,7 @@ class GetLog extends Component {
     getLogApi(this.state.dents, this.props.user)
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
-      .then(data => console.log(data) || data)
+      // .then(data => console.log(data) || data)
       .then(data => this.setState({ dents: data.dents }))
       .catch(() => this.setState({ notFound: true }))
       .catch(() => flash(logMessages.logFailure, 'flash-error'))
@@ -34,7 +34,7 @@ class GetLog extends Component {
     }
     const dents = this.state.dents.map(dent => (
       <li key={dent.id}>
-        <Link to={`/dents/${dent.id}`}>{dent.id}</Link>
+        <Link to={`/dents/${dent.id}`}>Log ID: {dent.id}</Link>
       </li>
     ))
 

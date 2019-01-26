@@ -40,30 +40,16 @@ class UpdateLog extends Component {
       .then(res => res.json())
       .then(data => this.setState({dents: data.dents}))
       .then(() => flash(teethMessages.updateLogSuccess, 'flash-success'))
-      .then(() => history.push('/'))
+      .then(() => history.push('/dents'))
       .catch(() => flash(teethMessages.logFailure, 'flash-error'))
   }
-
-  changePassword = event => {
-    event.preventDefault()
-
-    // const { oldPassword, newPassword } = this.state
-    // const { flash, user } = this.props
-
-    changePassword(this.state, this.props.user)
-      .then(handleErrors)
-      .then(() => flash(messages.changePasswordSuccess, 'flash-success'))
-      .then(() => history.push('/'))
-      .catch(() => flash(messages.changePasswordFailure, 'flash-error'))
-  }
-
 
   render () {
     const id = this.props.match.params.id
     if (this.state.updated) {
       return <Redirect to={`/dents/${id}`}/>
     }
-    const {pain_level, sensitivity, how_long, medications, notes} = this.state.dent
+    const {pain_level, sensitivity, how_long, medications, notes} = this.state.dents
     return (
       <DentalForm
         handleChange={this.handleChange}
