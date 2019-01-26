@@ -31,16 +31,15 @@ class CreateLog extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    const {flash, user} = this.props
+    const {flash, user, history} = this.props
     const { dent  } = this.state
 
     createLogApi(this.state.dent, user)
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
       .then(() => flash(logMessages.createLogSuccess, 'flash-success'))
-      // Do I even need history.push?
       .then(() => history.push('/'))
-      .catch(console.log)
+      .then(() => history.push('/dents'))
       .catch(() => flash(logMessages.logFailure, 'flash-error'))
   }
 

@@ -33,13 +33,15 @@ class Log extends Component {
       method: 'DELETE'
     }
 
-    const { flash } = this.props
+    const { flash, history } = this.props
     const id = this.props.match.params.id
 
     destroyLogApi(this.props.user, id)
       .then(res => res.ok ? res : new Error())
       .then(()=> this.setState({ deleted: true }))
       .then(() => flash(logMessages.destroyLogSuccess, 'flash-success'))
+      .then(() => history.push('/'))
+      .then(() => history.push('/dents'))
       .catch(() => flash(logMessages.logFailure, 'flash-error'))
   }
 

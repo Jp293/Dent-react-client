@@ -22,7 +22,6 @@ class GetLog extends Component {
     getLogApi(this.state.dents, this.props.user)
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
-      // .then(data => console.log(data) || data)
       .then(data => this.setState({ dents: data.dents }))
       .catch(() => this.setState({ notFound: true }))
       .catch(() => flash(logMessages.logFailure, 'flash-error'))
