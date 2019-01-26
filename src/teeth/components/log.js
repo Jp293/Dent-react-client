@@ -72,7 +72,7 @@ class Log extends Component {
         <p>Notes :{this.state.dent.notes}</p>
 
         <button>
-          <Link to={`/dents/${id}/edit`}>Update </Link>
+          <Link to={`/dents/${id}/update`}>Update </Link>
         </button>
         <button onClick={this.destroy}>Delete </button>
       </React.Fragment>

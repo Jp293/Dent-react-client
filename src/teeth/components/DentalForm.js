@@ -1,56 +1,51 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
 
-const DentalForm = ({ handleChange, handleSubmit, dents }) => (
-  <form className='update-form' onSubmit={this.handleSubmit}>
+
+const DentalForm = ({ handleChange, handleSubmit, dent }) => (
+  <form className='update-form' onSubmit={handleSubmit}>
     <h3>Update Log</h3>
     <label htmlFor="pain_level">Pain Level</label>
     <input
       required
-      type="pain_level"
       name="pain_level"
-      value={dents.pain_level}
+      value={dent.pain_level}
       placeholder="Pain Level"
-      onChange={this.handleChange}
+      onChange={handleChange}
     />
     <label htmlFor="sensitivity">Sensitivity</label>
     <input
       required
       name="sensitivity"
-      value={dents.sensitivity}
-      type="sensitivity"
+      value={dent.sensitivity}
       placeholder="Sensitivity"
-      onChange={this.handleChange}
+      onChange={handleChange}
     />
     <label htmlFor="how_long">How Long</label>
     <input
       required
       name="how_long"
-      value={dents.how_long}
-      type="how_long"
+      value={dent.how_long}
       placeholder="How Long"
-      onChange={this.handleChange}
+      onChange={handleChange}
     />
     <label htmlFor="medications">Medications</label>
     <input
       required
       name="medications"
-      value={dents.medications}
-      type="medications"
+      value={dent.medications}
       placeholder="Medications"
-      onChange={this.handleChange}
+      onChange={handleChange}
     />
     <label htmlFor="notes">Notes</label>
     <input
       required
       name="notes"
-      value={dents.notes}
-      type="notes"
+      value={dent.notes}
       placeholder="Notes"
-      onChange={this.handleChange}
+      onChange={handleChange}
     />
     <button type="submit">Update Log</button>
     <button onClick={handleChange}>Cancel</button>
   </form>
 )
-export default withRouter(DentalForm)
+export default DentalForm
