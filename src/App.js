@@ -55,22 +55,22 @@ class App extends Component {
           <Route path='/sign-in' render={() => (
             <SignIn flash={this.flash} setUser={this.setUser} />
           )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+          <AuthenticatedRoute user={user} exact path='/sign-out' render={() => (
             <SignOut flash={this.flash} clearUser={this.clearUser} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
+          <AuthenticatedRoute user={user} exact path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/dents/' render={() => (
+          <AuthenticatedRoute user={user} exact path='/dents/' render={() => (
             <CreateLog flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/dents' render={() => (
+          <AuthenticatedRoute user={user} exact path='/dents' render={() => (
             <GetLog flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/dents/:id' render={() => (
+          <AuthenticatedRoute user={user} exact path='/dents/:id' render={() => (
             <Log flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/dents/:id/update' render={() => (
+          <AuthenticatedRoute user={user} exact path='/dents/:id/update' render={() => (
             <UpdateLog flash={this.flash} user={user} />
           )} />
         </main>
