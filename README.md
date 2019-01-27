@@ -26,7 +26,7 @@
 
 ## Application Preview
 
-* [Image](https://i.imgur.com/hbs20sh.png)
+![Image](https://i.imgur.com/hbs20sh.png)
 
 ## User Stories:
 Auth
@@ -45,10 +45,10 @@ As an authenticated user I want to be able to update a symptom log.
 
 ## Wireframes:
 
-* [Wireframe 1](https://i.imgur.com/ZDEwwXx.png)
-* [Wireframe 2](https://i.imgur.com/d6WqHpp.png)
-* [Wireframe 3](https://i.imgur.com/eD3dkyA.png)
-* [Wireframe 4](https://i.imgur.com/g2rwV71.png)
+![Wireframe 1](https://i.imgur.com/ZDEwwXx.png)
+![Wireframe 2](https://i.imgur.com/d6WqHpp.png)
+![Wireframe 3](https://i.imgur.com/eD3dkyA.png)
+![Wireframe 4](https://i.imgur.com/g2rwV71.png)
 
 
 
@@ -67,7 +67,7 @@ As an authenticated user I want to be able to update a symptom log.
 
 * Basic CSS on forms: The forms were crowded at first and wouldn't display the
   fields in a user friendly manner so flex and margin features were used to enhance
-  the forms visually. 
+  the forms visually.
 
 
 
