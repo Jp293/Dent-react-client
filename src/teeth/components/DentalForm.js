@@ -7,6 +7,7 @@ const DentalForm = ({ dent, handleChange, handleSubmit, cancelPath }) => (
     <h3>Update Log</h3>
     <label htmlFor="pain_level">Pain Level</label>
     <input
+      required
       name="pain_level"
       value={dent.pain_level}
       placeholder="Pain Level"
@@ -14,6 +15,7 @@ const DentalForm = ({ dent, handleChange, handleSubmit, cancelPath }) => (
     />
     <label htmlFor="sensitivity">Sensitivity</label>
     <input
+      required
       name="sensitivity"
       value={dent.sensitivity}
       placeholder="Sensitivity"
@@ -21,6 +23,7 @@ const DentalForm = ({ dent, handleChange, handleSubmit, cancelPath }) => (
     />
     <label htmlFor="how_long">How Long</label>
     <input
+      required
       name="how_long"
       value={dent.how_long}
       placeholder="How Long"
@@ -28,6 +31,7 @@ const DentalForm = ({ dent, handleChange, handleSubmit, cancelPath }) => (
     />
     <label htmlFor="medications">Medications</label>
     <input
+      required
       name="medications"
       value={dent.medications}
       placeholder="Medications"
@@ -35,6 +39,7 @@ const DentalForm = ({ dent, handleChange, handleSubmit, cancelPath }) => (
     />
     <label htmlFor="notes">Notes</label>
     <input
+      required
       name="notes"
       value={dent.notes}
       placeholder="Notes"

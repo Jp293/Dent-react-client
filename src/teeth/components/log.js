@@ -75,6 +75,9 @@ class Log extends Component {
           <Link to={`/dents/${id}/update`}>Update </Link>
         </button>
         <button onClick={this.destroy}>Delete </button>
+        <button>
+          <Link to={'/dents'}>Return </Link>
+        </button>
       </React.Fragment>
     )
   }
