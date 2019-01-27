@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { handleErrors, getLogApi } from '../teethApi'
 import logMessages from '../logMessages'
 import apiUrl from '../../apiConfig'
-
+import './Dentlogs.scss'
 
 class GetLog extends Component {
   constructor (props) {
@@ -40,6 +40,7 @@ class GetLog extends Component {
     return  (
       <React.Fragment>
         <h4>Dental Logs:</h4>
+        <p>(Please create logs if none are displaying.)</p>
         <ul>
           {dents}
         </ul>

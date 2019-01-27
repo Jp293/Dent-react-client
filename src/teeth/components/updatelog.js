@@ -5,6 +5,7 @@ import { handleErrors, updateLogApi } from '../teethApi'
 import logMessages from '../logMessages'
 import apiUrl from '../../apiConfig'
 import DentalForm from './DentalForm'
+import './Dentlogs.scss'
 
 class UpdateLog extends Component {
   constructor (props) {
