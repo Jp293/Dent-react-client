@@ -27,7 +27,8 @@ class UpdateLog extends Component {
   }
 
   handleChange = event => {
-    const editedTeeth = { ...this.state.dent, [event.target.name]: event.target.value }
+    const updatedField = {    ...this.state.dent,[event.target.name]: event.target.value }
+    const editedTeeth = Object.assign(this.state, updatedField)
     this.setState({ dent: editedTeeth })
   }
 
@@ -55,10 +56,11 @@ class UpdateLog extends Component {
     const {pain_level, sensitivity, how_long, medications, notes} = this.state.dent
     return (
       <DentalForm
+        dent={this.state.dent}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
-        dent={this.state.dent} />
-
+        cancelPath={`/dents/${this.props.match.params.id}`}
+      />
     )
   }
 }

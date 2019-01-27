@@ -1,12 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
-const DentalForm = ({ handleChange, handleSubmit, dent }) => (
+const DentalForm = ({ dent, handleChange, handleSubmit, cancelPath }) => (
   <form className='update-form' onSubmit={handleSubmit}>
     <h3>Update Log</h3>
     <label htmlFor="pain_level">Pain Level</label>
     <input
-      required
       name="pain_level"
       value={dent.pain_level}
       placeholder="Pain Level"
@@ -14,7 +14,6 @@ const DentalForm = ({ handleChange, handleSubmit, dent }) => (
     />
     <label htmlFor="sensitivity">Sensitivity</label>
     <input
-      required
       name="sensitivity"
       value={dent.sensitivity}
       placeholder="Sensitivity"
@@ -22,7 +21,6 @@ const DentalForm = ({ handleChange, handleSubmit, dent }) => (
     />
     <label htmlFor="how_long">How Long</label>
     <input
-      required
       name="how_long"
       value={dent.how_long}
       placeholder="How Long"
@@ -30,7 +28,6 @@ const DentalForm = ({ handleChange, handleSubmit, dent }) => (
     />
     <label htmlFor="medications">Medications</label>
     <input
-      required
       name="medications"
       value={dent.medications}
       placeholder="Medications"
@@ -38,14 +35,15 @@ const DentalForm = ({ handleChange, handleSubmit, dent }) => (
     />
     <label htmlFor="notes">Notes</label>
     <input
-      required
       name="notes"
       value={dent.notes}
       placeholder="Notes"
       onChange={handleChange}
     />
     <button type="submit">Update Log</button>
-    <button onClick={handleChange}>Cancel</button>
+    <Link to={cancelPath}>
+      <button>Cancel</button>
+    </Link>
   </form>
 )
 export default DentalForm
