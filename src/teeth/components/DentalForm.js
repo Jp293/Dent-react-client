@@ -37,6 +37,7 @@ const DentalForm = ({ dent, handleChange, handleSubmit, cancelPath }) => (
     />
     <label htmlFor="medications">Medications: </label>
     <input
+      required
       name="medications"
       value={dent.medications}
       placeholder="Ibuprofren/Aspirin/etc?"
@@ -44,6 +45,7 @@ const DentalForm = ({ dent, handleChange, handleSubmit, cancelPath }) => (
     />
     <label htmlFor="notes">Notes: </label>
     <input
+      required
       name="notes"
       value={dent.notes}
       placeholder="Any other symptoms?"

@@ -54,10 +54,20 @@ As an authenticated user I want to be able to update a symptom log.
 
 ## Thought Process & Execution
 
-* Planning:
-* CRUD Actions to Back-end:
-* Debug:
-* Basic CSS on forms: 
+* Planning: Initially I planned out the user stories and wireframes to maximize
+  efficiency for users and ease of navigation.
+
+* CRUD Actions to Back-end: After setting up the necessary files and forms, I
+  tested each feature with API requests. First I created a log, then I set it up so users
+  could see their logs upon signing in via GET requests.
+
+* Debug: Removing bugs are warnings was the most challenging part because certain paths
+  would leave users stranded without a way to return to the resource content. To remedy
+  this situation, buttons and redirection link were implemented.
+
+* Basic CSS on forms: The forms were crowded at first and wouldn't display the
+  fields in a user friendly manner so flex and margin features were used to enhance
+  the forms visually. 
 
 
 
@@ -70,3 +80,4 @@ Although the app is still in its early stages it has potential to enhance the ef
   - Else if pain level is in between 4 and 8 the tooth image will turn yellow.
   - Else if pain level is between 8 and 10 the image will change to red.
 * Version 4: Add administrators (possibly dentists/healthcare providers) to provide consented data from users to clinics.
+* Modernize and improve styling and app interface.
