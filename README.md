@@ -29,17 +29,17 @@
 ![Image](https://i.imgur.com/hbs20sh.png)
 
 ## User Stories:
-Auth
-As a user, I want to be able to sign up w/ an email & password.
-As a user, I want to be able to sign in.
-As an authenticated user I want the option to change my password.
-As an authenticated user I want the option to sign out.
+* Auth
+* As a user, I want to be able to sign up w/ an email & password.
+* As a user, I want to be able to sign in.
+* As an authenticated user I want the option to change my password.
+* As an authenticated user I want the option to sign out.
 
-Resource
-As an authenticated user I want to be able to create a symptom log.
-As an authenticated user I want to be able to get a symtom log.
-As an authenticated user I want to be able to destroy a symptom log.
-As an authenticated user I want to be able to update a symptom log.
+* Resource
+* As an authenticated user I want to be able to create a symptom log.
+* As an authenticated user I want to be able to get a symtom log.
+* As an authenticated user I want to be able to destroy a symptom log.
+* As an authenticated user I want to be able to update a symptom log.
 
 
 
