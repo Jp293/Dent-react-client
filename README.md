@@ -1,4 +1,4 @@
-## Dent's Functionality (Back-End)
+## Dent's Functionality (Front-End)
  Dent (Short for Dental Health ) is a web application that can track symptoms and conditions related to the oral cavity. The app works by allowing users to create authenticated accounts which will then give them access to create, view, update or delete logs based on locations in the mouth. Among the symptoms parameters they will be able to report: pain levels, sensitivity, medications, notes etc.
 
 ## Links
