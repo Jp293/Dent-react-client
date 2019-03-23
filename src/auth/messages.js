@@ -8,5 +8,7 @@ export default {
   signOutSuccess: 'Come back soon!',
   changePasswordSuccess: 'Password changed successfully!',
   changePasswordFailure: 'Failed to change passwords. Check your old password' +
-                         ' and try again.'
+                         ' and try again.',
+  verifySuccess: 'You are verified',
+  verifyFailure: 'Please complete Catpcha'
 }

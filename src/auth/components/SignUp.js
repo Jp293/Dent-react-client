@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-
+import Recaptcha from 'react-recaptcha'
 import { handleErrors, signUp, signIn } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
@@ -9,13 +9,27 @@ class SignUp extends Component {
   constructor () {
     super()
 
+    this.handleSecurity = this.handleSecurity.bind(this)
+    this.recaptchaLoaded = this.recaptchaLoaded.bind(this)
     this.state = {
       email: '',
       password: '',
-      passwordConfirmation: ''
+      passwordConfirmation: '',
+      isVerified: false
     }
   }
 
+  recaptchaLoaded = event => {
+    console.log('recaptcha loaded')
+  }
+
+  handleSecurity = event => {
+    if (this.state.isVerified) {
+      alert(messages.verifySuccess, 'flash-success')
+    } else {
+      alert(messages.verifyFailure, 'flash-error')
+    }
+  }
   handleChange = event => this.setState({
     [event.target.name]: event.target.value
   })
@@ -71,7 +85,13 @@ class SignUp extends Component {
           placeholder="Confirm Password"
           onChange={this.handleChange}
         />
-        <button type="submit">Sign Up</button>
+        <button onClick={this.handleSecurity} type="submit">Sign Up</button>
+
+        <Recaptcha
+          sitekey="6LcCc5kUAAAAAFu_KDQKPPrcjvaIeKEbsmnNr2aw"
+          render="explicit"
+          onloadCallback={this.recaptchaLoaded}
+        />
       </form>
     )
   }
