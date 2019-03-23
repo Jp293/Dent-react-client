@@ -11,6 +11,7 @@ class SignUp extends Component {
 
     this.handleSecurity = this.handleSecurity.bind(this)
     this.recaptchaLoaded = this.recaptchaLoaded.bind(this)
+    this.verifyCallback = this.verifyCallback.bind(this)
     this.state = {
       email: '',
       password: '',
@@ -30,6 +31,13 @@ class SignUp extends Component {
       alert(messages.verifyFailure, 'flash-error')
     }
   }
+  verifyCallback = response => {
+    if (response) {
+      this.setState({
+        isVerified: true
+      })
+    }
+  }
   handleChange = event => this.setState({
     [event.target.name]: event.target.value
   })
@@ -37,10 +45,13 @@ class SignUp extends Component {
   signUp = event => {
     event.preventDefault()
 
-    const { email, password, passwordConfirmation} = this.state
+    const { email, password, passwordConfirmation, verifyCallback} = this.state
     const { flash, history, setUser } = this.props
 
     signUp(this.state)
+      .then(verifyCallback)
+      .then(recaptchaLoaded)
+      .then(handleSecurity)
       .then(handleErrors)
       .then(() => signIn(this.state))
       .then(handleErrors)
@@ -85,13 +96,13 @@ class SignUp extends Component {
           placeholder="Confirm Password"
           onChange={this.handleChange}
         />
-        <button onClick={this.handleSecurity} type="submit">Sign Up</button>
-
         <Recaptcha
           sitekey="6LcCc5kUAAAAAFu_KDQKPPrcjvaIeKEbsmnNr2aw"
           render="explicit"
           onloadCallback={this.recaptchaLoaded}
+          verifyCallback={this.verifyCallback}
         />
+        <button onClick={this.handleSecurity} type="submit">Sign Up</button>
       </form>
     )
   }
