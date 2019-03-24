@@ -45,13 +45,13 @@ class SignUp extends Component {
   signUp = event => {
     event.preventDefault()
 
-    const { email, password, passwordConfirmation, verifyCallback} = this.state
+    const { email, password, passwordConfirmation, verifyCallback, recaptchaLoaded, handleSecurity} = this.state
     const { flash, history, setUser } = this.props
 
     signUp(this.state)
-      .then(verifyCallback)
       .then(recaptchaLoaded)
       .then(handleSecurity)
+      .then(verifyCallback)
       .then(handleErrors)
       .then(() => signIn(this.state))
       .then(handleErrors)
