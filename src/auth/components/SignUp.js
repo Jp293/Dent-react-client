@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import Recaptcha from 'react-recaptcha'
-import { handleErrors, signUp, signIn } from '../api'
+import { handleErrors, signUp, signIn, handleCallback } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
 import TextField from '@material-ui/core/TextField'
@@ -32,6 +32,13 @@ class SignUp extends Component {
     console.log('recaptcha loaded')
   }
 
+  verifyCallback = response => {
+    if (response) {
+      this.setState({
+        isVerified: true
+      })
+    }
+  }
   handleSecurity = event => {
 
     const { flash } = this.props
@@ -40,13 +47,6 @@ class SignUp extends Component {
       flash(messages.verifySuccess, 'flash-success')
     } else {
       flash(messages.verifyFailure, 'flash-error')
-    }
-  }
-  verifyCallback = response => {
-    if (response) {
-      this.setState({
-        isVerified: true
-      })
     }
   }
   handleChange = event => this.setState({
@@ -59,27 +59,32 @@ class SignUp extends Component {
   signUp = event => {
     event.preventDefault()
 
-    const { email, password, passwordConfirmation, verifyCallback, recaptchaLoaded, handleSecurity} = this.state
+    const { email, password, passwordConfirmation, isVerified } = this.state
     const { flash, history, setUser, setState } = this.props
 
-    signUp(this.state)
+
+    verifyCallback(this.state)
+      // signUp(this.state)
 
       // .then(res => res.ok ? res : new Error())
 
-      .then(recaptchaLoaded)
-      .then(handleSecurity)
-      .then(verifyCallback)
+      // .then(recaptchaLoaded)
+      // .then(handleSecurity)
+      // .then(verifyCallback)
       // .then(() => this.setState(response => isVerified ? response : new Error()))
-      .then(response => isVerified ? response : new Error())
+      // .then(response => isVerified ? response : new Error())
       .then(handleErrors)
-      .then(() => signIn(this.state))
+      .then(() => signUp(this.state))
       .then(handleErrors)
       .then(res => res.json())
       .then(res => setUser(res.user))
       .then(() => flash(messages.signUpSuccess, 'flash-success'))
-      // .then(() => history.push('/dents'))
+      .then(() => signIn(this.state))
+      .then(handleErrors)
+      .then(() => history.push('/dents'))
       .catch(() => this.setState({ isVerified: false }))
       .catch(() => flash(messages.signUpFailure, 'flash-error'))
+
   }
 
   render () {
