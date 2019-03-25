@@ -33,10 +33,13 @@ class SignUp extends Component {
   }
 
   handleSecurity = event => {
+
+    const { flash } = this.props
+
     if (this.state.isVerified) {
-      alert(messages.verifySuccess, 'flash-success')
+      flash(messages.verifySuccess, 'flash-success')
     } else {
-      alert(messages.verifyFailure, 'flash-error')
+      flash(messages.verifyFailure, 'flash-error')
     }
   }
   verifyCallback = response => {
@@ -57,19 +60,25 @@ class SignUp extends Component {
     event.preventDefault()
 
     const { email, password, passwordConfirmation, verifyCallback, recaptchaLoaded, handleSecurity} = this.state
-    const { flash, history, setUser } = this.props
+    const { flash, history, setUser, setState } = this.props
 
     signUp(this.state)
+
+      // .then(res => res.ok ? res : new Error())
+
       .then(recaptchaLoaded)
       .then(handleSecurity)
       .then(verifyCallback)
+      // .then(() => this.setState(response => isVerified ? response : new Error()))
+      .then(response => isVerified ? response : new Error())
       .then(handleErrors)
       .then(() => signIn(this.state))
       .then(handleErrors)
       .then(res => res.json())
       .then(res => setUser(res.user))
       .then(() => flash(messages.signUpSuccess, 'flash-success'))
-      .then(() => history.push('/dents'))
+      // .then(() => history.push('/dents'))
+      .catch(() => this.setState({ isVerified: false }))
       .catch(() => flash(messages.signUpFailure, 'flash-error'))
   }
 
