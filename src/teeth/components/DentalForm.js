@@ -1,59 +1,71 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 
 
 const DentalForm = ({ dent, handleChange, handleSubmit, cancelPath }) => (
   <form className='dent-log-form' onSubmit={handleSubmit}>
     <h3>Update Log</h3>
-    <label htmlFor="pain_level">Pain Level: </label>
-    <input
+    <TextField
+      id="pain-level-update"
+      label="Pain Level"
       required
       name="pain_level"
+      value={dent.pain_level}
       type="number"
       min="0"
       max="10"
-      value={dent.pain_level}
       placeholder="Scale 0 - 10"
       onChange={handleChange}
+      variant="outlined"
     />
-    <label htmlFor="sensitivity">Sensitivity: </label>
-    <input
+    <TextField
+      id="sensitivity-update"
+      label="Sensitivity"
       required
+      value={dent.sensitivity}
       name="sensitivity"
       type="number"
       min="0"
       max="10"
-      value={dent.sensitivity}
       placeholder="Scale 0 - 10 "
       onChange={handleChange}
+      variant="outlined"
     />
-    <label htmlFor="how_long">How Long: </label>
-    <input
+    <TextField
+      id="how-long-update"
+      label="How Long"
       required
-      name="how_long"
       value={dent.how_long}
-      placeholder="ex. 2 days/3 weeks/1 month"
+      name="how_long"
+      placeholder="ex. 2 days/ 3 weeks/ 1 month"
       onChange={handleChange}
+      variant="outlined"
     />
-    <label htmlFor="medications">Medications: </label>
-    <input
+    <TextField
+      id="medications-update"
+      label htmlFor="Medications"
       required
-      name="medications"
       value={dent.medications}
+      name="medications"
       placeholder="Ibuprofren/Aspirin/etc?"
       onChange={handleChange}
+      variant="outlined"
     />
-    <label htmlFor="notes">Notes: </label>
-    <input
+    <TextField
+      id="notes-update"
+      label="Notes"
+      value={dent.notes}
       required
       name="notes"
-      value={dent.notes}
       placeholder="Any other symptoms?"
       onChange={handleChange}
+      variant="outlined"
     />
-    <button type="submit">Update Log</button>
+    <Button variant="outlined" color="primary" type="submit">Update Log</Button>
     <Link to={cancelPath}>
-      <button>Cancel</button>
+      <Button variant="outlined" color="secondary">Cancel</Button>
     </Link>
   </form>
 )

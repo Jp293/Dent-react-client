@@ -76,8 +76,8 @@ class Log extends Component {
           <Link to={`/dents/${id}/update`}>Update </Link>
         </Button>
         <Button variant="outlined" color="primary" onClick={this.destroy}>Delete </Button>
-        <Button variant="outlined" color="primary">
-          <Link to={'/dents'}>Return </Link>
+        <Button variant="outlined" color="secondary">
+          <Link to={'/dents'} style={{color: 'red'}}>Return </Link>
         </Button>
       </React.Fragment>
     )

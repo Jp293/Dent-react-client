@@ -93,6 +93,7 @@ class CreateLog extends Component {
           label="Medications"
           name="medications"
           value={this.state.dent.medications}
+          type="text"
           placeholder="Ibuprofren/Aspirin/None?"
           onChange={this.handleChange}
           variant="outlined"
@@ -102,6 +103,7 @@ class CreateLog extends Component {
           label="Notes"
           name="notes"
           value={this.state.dent.notes}
+          type="text"
           placeholder="Any other symptoms?"
           onChange={this.handleChange}
           variant="outlined"
