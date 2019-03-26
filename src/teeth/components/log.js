@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router'
 import { Link, Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import { handleErrors, indexLogApi, destroyLogApi } from '../teethApi'
 import logMessages from '../logMessages'
 
@@ -64,12 +64,12 @@ class Log extends Component {
     const { id, pain_level, sensitivity, how_long, medications, notes } = dent
     return(
       <React.Fragment>
-        <h5>Dental Log # :{this.state.dent.id}</h5>
-        <p>Pain Level: {this.state.dent.pain_level}</p>
+        <h5>Dental Log # : {this.state.dent.id}</h5>
+        <p>Pain Level : {this.state.dent.pain_level}</p>
         <p>Sensitivity : {this.state.dent.sensitivity}</p>
-        <p>Length of Time:{this.state.dent.how_long}</p>
-        <p>Medications taken :{this.state.dent.medications}</p>
-        <p>Notes :{this.state.dent.notes}</p>
+        <p>Length of Time: {this.state.dent.how_long}</p>
+        <p>Medications taken : {this.state.dent.medications}</p>
+        <p>Notes : {this.state.dent.notes}</p>
 
         <button>
           <Link to={`/dents/${id}/update`}>Update </Link>

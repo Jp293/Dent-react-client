@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 import { withRouter } from 'react-router'
 import { handleErrors, createLogApi } from '../teethApi'
 import logMessages from '../logMessages'
 import apiUrl from '../../apiConfig'
 import './Dentlogs.scss'
+
 
 
 class CreateLog extends Component {
@@ -49,53 +52,63 @@ class CreateLog extends Component {
     return (
       <form className='create-form' onSubmit={this.handleSubmit}>
         <h3>Create Log</h3>
-        <label htmlFor="pain_level">Pain Level: </label>
-        <input
+        <TextField
+          id="pain-level-create"
+          label="Pain Level"
           required
-          type="number"
           name="pain_level"
-          min="0"
-          max="10"
           value={this.state.dent.pain_level}
-          placeholder="Scale 0 - 10"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="sensitivity">Sensitivity: </label>
-        <input
-          required
           type="number"
-          name="sensitivity"
           min="0"
           max="10"
-          value={this.state.dent.sensitivity}
           placeholder="Scale 0 - 10"
           onChange={this.handleChange}
+          variant="outlined"
         />
-        <label htmlFor="how_long">How Long: </label>
-        <input
+        <TextField
+          id="sensitivity-create"
+          label="Sensitivity"
+          required
+          name="sensitivity"
+          value={this.state.dent.sensitivity}
+          type="number"
+          min="0"
+          max="10"
+          placeholder="Scale 0 - 10"
+          onChange={this.handleChange}
+          variant="outlined"
+        />
+        <TextField
+          id="how-long-create"
+          label="How Long"
           required
           name="how_long"
           value={this.state.dent.how_long}
           placeholder="ex. 2 days/3 weeks/1 month"
           onChange={this.handleChange}
+          variant="outlined"
         />
-        <label htmlFor="medications">Medications: </label>
-        <input
+        <TextField
+          id="medications-create"
+          label="Medications"
           name="medications"
           value={this.state.dent.medications}
-          type="medications"
-          placeholder="Ibuprofren/Aspirin/etc?"
+          placeholder="Ibuprofren/Aspirin/None?"
           onChange={this.handleChange}
+          variant="outlined"
         />
-        <label htmlFor="notes">Notes: </label>
-        <input
+        <TextField
+          id="notes-create"
+          label="Notes"
           name="notes"
           value={this.state.dent.notes}
-          type="notes"
           placeholder="Any other symptoms?"
           onChange={this.handleChange}
+          variant="outlined"
         />
-        <button type="submit">Create Log</button>
+        <Button variant="outlined" color="primary" type="submit">
+        Submit
+        </Button>
       </form>
     )
   }

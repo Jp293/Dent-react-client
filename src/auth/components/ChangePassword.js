@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 import { withRouter } from 'react-router-dom'
-
 import { handleErrors, changePassword } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
 
 
 class ChangePassword extends Component {

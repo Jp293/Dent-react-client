@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
 import Recaptcha from 'react-recaptcha'
-import { handleErrors, signUp, signIn } from '../api'
-import messages from '../messages'
-import apiUrl from '../../apiConfig'
 import TextField from '@material-ui/core/TextField'
 import IconButton from '@material-ui/core/IconButton'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import Button from '@material-ui/core/Button'
+import { handleErrors, signUp, signIn } from '../api'
+import { withRouter } from 'react-router-dom'
+import apiUrl from '../../apiConfig'
+import messages from '../messages'
 
 class SignUp extends Component {
   constructor () {
