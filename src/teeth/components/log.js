@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 import { withRouter } from 'react-router'
 import { handleErrors, indexLogApi, destroyLogApi } from '../teethApi'
 import logMessages from '../logMessages'
@@ -71,13 +72,13 @@ class Log extends Component {
         <p>Medications taken : {this.state.dent.medications}</p>
         <p>Notes : {this.state.dent.notes}</p>
 
-        <button>
+        <Button variant="outlined" color="primary" >
           <Link to={`/dents/${id}/update`}>Update </Link>
-        </button>
-        <button onClick={this.destroy}>Delete </button>
-        <button>
+        </Button>
+        <Button variant="outlined" color="primary" onClick={this.destroy}>Delete </Button>
+        <Button variant="outlined" color="primary">
           <Link to={'/dents'}>Return </Link>
-        </button>
+        </Button>
       </React.Fragment>
     )
   }
