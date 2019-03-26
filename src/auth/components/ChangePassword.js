@@ -4,6 +4,9 @@ import { withRouter } from 'react-router-dom'
 import { handleErrors, changePassword } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+
 
 class ChangePassword extends Component {
   constructor () {
@@ -38,26 +41,31 @@ class ChangePassword extends Component {
     return (
       <form className='auth-form' onSubmit={this.changePassword}>
         <h3>Change Password</h3>
-
-        <label htmlFor="oldpw">Old Password</label>
-        <input
+        <TextField
+          id="outlined-email-input-chpw"
+          label="Old Password"
           required
           name="oldPassword"
           value={oldPassword}
           type="password"
           placeholder="Old Password"
           onChange={this.handleChange}
+          variant="outlined"
         />
-        <label htmlFor="newPassword">New Password</label>
-        <input
+        <TextField
+          id="outlined-email-input-nwpw"
+          label="New Password"
           required
           name="newPassword"
           value={newPassword}
           type="password"
           placeholder="New Password"
           onChange={this.handleChange}
+          variant="outlined"
         />
-        <button type="submit">Change Password</button>
+        <Button variant="outlined" color="primary" type="submit">
+        Submit
+        </Button>
       </form>
     )
   }

@@ -78,9 +78,9 @@ class SignUp extends Component {
 
     return (
       <form className='auth-form' onSubmit={this.signUp}>
-        <h3>Sign Up</h3>
+        <h3>Create Account</h3>
         <TextField
-          id="outlined-email-input"
+          id="outlined-email-input-signup"
           label="Email"
           required
           name="email"

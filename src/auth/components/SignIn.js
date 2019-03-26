@@ -49,9 +49,9 @@ class SignIn extends Component {
 
     return (
       <form className='auth-form' onSubmit={this.signIn}>
-        <h3>Sign In</h3>
+        <h3>😁</h3>
         <TextField
-          id="outlined-email-input"
+          id="outlined-email-input-signin"
           label="Email"
           required
           name="email"
@@ -85,7 +85,7 @@ class SignIn extends Component {
           }}
         />
         <Button variant="outlined" color="primary" type="submit">
-        Sign Up
+        Sign In
         </Button>
       </form>
     )
