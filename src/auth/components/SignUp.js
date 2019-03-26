@@ -91,15 +91,15 @@ class SignUp extends Component {
           variant="outlined"
         />
         <TextField
-          required
           id="outlined-adornment-password"
-          variant="outlined"
           label="Password"
+          required
           name="password"
           value={password}
+          type={this.state.showPassword ? 'text': 'password'}
           placeholder="Password"
           onChange={this.handleChange}
-          type={this.state.showPassword ? 'text': 'password'}
+          variant="outlined"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -143,7 +143,7 @@ class SignUp extends Component {
           onloadCallback={this.recaptchaLoaded}
           verifyCallback={this.verifyCallback}
         />
-        <Button variant="outlined" color="primary" onClick={this.handleSecurity} type="submit">
+        <Button variant="outlined" color="primary" type="submit">
         Sign Up
         </Button>
       </form>

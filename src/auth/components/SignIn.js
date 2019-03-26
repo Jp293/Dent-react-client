@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-
 import { signIn } from '../api'
 import messages from '../messages'
 import apiUrl from '../../apiConfig'
+import TextField from '@material-ui/core/TextField'
+import IconButton from '@material-ui/core/IconButton'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Visibility from '@material-ui/icons/Visibility'
+import VisibilityOff from '@material-ui/icons/VisibilityOff'
+import Button from '@material-ui/core/Button'
+
 
 class SignIn extends Component {
   constructor () {
@@ -13,6 +19,10 @@ class SignIn extends Component {
       email: '',
       password: '',
     }
+  }
+
+  handleClickShowPassword = () => {
+    this.setState(state => ({ showPassword : !state.showPassword }))
   }
 
   handleChange = event => this.setState({
@@ -40,25 +50,43 @@ class SignIn extends Component {
     return (
       <form className='auth-form' onSubmit={this.signIn}>
         <h3>Sign In</h3>
-        <label htmlFor="email">Email</label>
-        <input
+        <TextField
+          id="outlined-email-input"
+          label="Email"
           required
-          type="email"
           name="email"
           value={email}
+          type="email"
           placeholder="Email"
           onChange={this.handleChange}
+          variant="outlined"
         />
-        <label htmlFor="password">Password</label>
-        <input
+        <TextField
+          id="outlined-adornment-password"
+          label="Password"
           required
           name="password"
           value={password}
-          type="password"
+          type={this.state.showPassword ? 'text': 'password'}
           placeholder="Password"
           onChange={this.handleChange}
+          variant="outlined"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="Toggle password visibility"
+                  onClick={this.handleClickShowPassword}
+                >
+                  {this.state.showPassword ? <VisibilityOff/> : <Visibility/> }
+                </IconButton>
+              </InputAdornment>
+            )
+          }}
         />
-        <button type="submit">Sign In</button>
+        <Button variant="outlined" color="primary" type="submit">
+        Sign Up
+        </Button>
       </form>
     )
   }
