@@ -52,6 +52,7 @@ class SignIn extends Component {
         <h3>😁</h3>
         <TextField
           id="outlined-email-input-signin"
+          className="textField"
           label="Email"
           required
           name="email"
@@ -63,6 +64,7 @@ class SignIn extends Component {
         />
         <TextField
           id="outlined-adornment-password"
+          className="textField"
           label="Password"
           required
           name="password"
@@ -73,7 +75,7 @@ class SignIn extends Component {
           variant="outlined"
           InputProps={{
             endAdornment: (
-              <InputAdornment position="end">
+              <InputAdornment className="icon" position="end">
                 <IconButton
                   aria-label="Toggle password visibility"
                   onClick={this.handleClickShowPassword}

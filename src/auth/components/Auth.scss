@@ -1,0 +1,18 @@
+.auth-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10% auto 0;
+  max-width: 300px;
+  .textField {
+    margin-bottom: 20px;
+    .icon{
+      margin-top: 30px;
+    }
+  }
+  .button {
+    display: flex;
+    margin-top: 20px;
+  }
+}

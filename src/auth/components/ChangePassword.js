@@ -42,6 +42,7 @@ class ChangePassword extends Component {
         <h3>Change Password</h3>
         <TextField
           id="outlined-email-input-chpw"
+          className="textField"
           label="Old Password"
           required
           name="oldPassword"
@@ -53,6 +54,7 @@ class ChangePassword extends Component {
         />
         <TextField
           id="outlined-email-input-nwpw"
+          className="textField"
           label="New Password"
           required
           name="newPassword"

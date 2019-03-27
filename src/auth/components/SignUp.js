@@ -10,6 +10,7 @@ import { handleErrors, signUp, signIn } from '../api'
 import { withRouter } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import messages from '../messages'
+import './Auth.scss'
 
 class SignUp extends Component {
   constructor () {
@@ -79,8 +80,10 @@ class SignUp extends Component {
     return (
       <form className='auth-form' onSubmit={this.signUp}>
         <h3>Create Account</h3>
+
         <TextField
           id="outlined-email-input-signup"
+          className="textField"
           label="Email"
           required
           name="email"
@@ -92,6 +95,7 @@ class SignUp extends Component {
         />
         <TextField
           id="outlined-adornment-password"
+          className="textField"
           label="Password"
           required
           name="password"
@@ -102,7 +106,7 @@ class SignUp extends Component {
           variant="outlined"
           InputProps={{
             endAdornment: (
-              <InputAdornment position="end">
+              <InputAdornment className="icon" position="end">
                 <IconButton
                   aria-label="Toggle password visibility"
                   onClick={this.handleClickShowPassword}
@@ -114,18 +118,19 @@ class SignUp extends Component {
           }}
         />
         <TextField
-          required
           id="outlined-adornment-pconfirmation"
-          variant="outlined"
+          className="textField"
           label="Password Confirmation"
+          required
           name="passwordConfirmation"
           value={passwordConfirmation}
           placeholder="Confirm Password"
           onChange={this.handleChange}
           type={this.state.showPassword ? 'text': 'password'}
+          variant="outlined"
           InputProps={{
             endAdornment: (
-              <InputAdornment position="end">
+              <InputAdornment className="icon" position="end">
                 <IconButton
                   aria-label="Toggle password visibility"
                   onClick={this.handleClickShowPassword}
@@ -143,7 +148,7 @@ class SignUp extends Component {
           onloadCallback={this.recaptchaLoaded}
           verifyCallback={this.verifyCallback}
         />
-        <Button variant="outlined" color="primary" type="submit">
+        <Button className="button" variant="outlined" color="primary" type="submit">
         Sign Up
         </Button>
       </form>

@@ -54,6 +54,7 @@ class CreateLog extends Component {
         <h3>Create Log</h3>
         <TextField
           id="pain-level-create"
+          className="textField"
           label="Pain Level"
           required
           name="pain_level"
@@ -67,6 +68,7 @@ class CreateLog extends Component {
         />
         <TextField
           id="sensitivity-create"
+          className="textField"
           label="Sensitivity"
           required
           name="sensitivity"
@@ -80,6 +82,7 @@ class CreateLog extends Component {
         />
         <TextField
           id="how-long-create"
+          className="textField"
           label="How Long"
           required
           name="how_long"
@@ -90,6 +93,7 @@ class CreateLog extends Component {
         />
         <TextField
           id="medications-create"
+          className="textField"
           label="Medications"
           name="medications"
           value={this.state.dent.medications}
@@ -100,6 +104,7 @@ class CreateLog extends Component {
         />
         <TextField
           id="notes-create"
+          className="textField"
           label="Notes"
           name="notes"
           value={this.state.dent.notes}
