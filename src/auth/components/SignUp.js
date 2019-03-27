@@ -148,7 +148,7 @@ class SignUp extends Component {
           onloadCallback={this.recaptchaLoaded}
           verifyCallback={this.verifyCallback}
         />
-        <Button className="button" variant="outlined" color="primary" type="submit">
+        <Button className="button" variant="contained" color="primary" type="submit">
         Sign Up
         </Button>
       </form>

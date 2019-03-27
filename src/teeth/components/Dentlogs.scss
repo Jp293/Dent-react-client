@@ -15,6 +15,22 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
+  margin: 5% auto 0;
+  max-width: 300px;
+  button {
+    align-self: flex-end;
+    max-width: 200px;
+  }
+  .textField {
+    margin-bottom: 20px;
+  }
+}
+
+.dent-log-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
   margin: 10% auto 0;
   max-width: 300px;
   button {
@@ -23,7 +39,10 @@
     margin: 20px auto;
   }
   .textField {
-    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  .update-button {
+    margin-right: 20px;
   }
 }
 
@@ -37,5 +56,11 @@ h4 {
     align-self: flex-end;
     max-width: 200px;
     margin: 20px auto;
+  }
+}
+.log {
+    margin-top: 20px;
+    .log-button {
+      margin-right: 20px;
   }
 }

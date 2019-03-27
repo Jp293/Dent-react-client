@@ -86,7 +86,7 @@ class SignIn extends Component {
             )
           }}
         />
-        <Button variant="outlined" color="primary" type="submit">
+        <Button variant="contained" color="primary" type="submit">
         Sign In
         </Button>
       </form>

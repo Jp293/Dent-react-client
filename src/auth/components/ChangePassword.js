@@ -64,7 +64,7 @@ class ChangePassword extends Component {
           onChange={this.handleChange}
           variant="outlined"
         />
-        <Button variant="outlined" color="primary" type="submit">
+        <Button variant="contained" color="primary" type="submit">
         Submit
         </Button>
       </form>

@@ -7,8 +7,6 @@ import logMessages from '../logMessages'
 import apiUrl from '../../apiConfig'
 import './Dentlogs.scss'
 
-
-
 class CreateLog extends Component {
   constructor (props) {
     super(props)
@@ -113,7 +111,7 @@ class CreateLog extends Component {
           onChange={this.handleChange}
           variant="outlined"
         />
-        <Button variant="outlined" color="primary" type="submit">
+        <Button variant="contained" color="primary" type="submit">
         Submit
         </Button>
       </form>
