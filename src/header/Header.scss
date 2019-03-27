@@ -1,8 +1,8 @@
 $charcoal: #bbb;
 
+
 .main-header {
   align-items: center;
-  border-bottom: 1px solid $charcoal;
   display: flex;
   height: 100px;
   padding: 0 20px;
@@ -11,6 +11,7 @@ $charcoal: #bbb;
   span {
     font-size: 1.2em;
     margin: 0 15px;
+
   }
 }
 
