@@ -23,6 +23,8 @@
 * SASS
 * Git
 * GitHub
+* Material Design (material.io)
+* Adobe Illustrator
 
 ## Application Preview
 
@@ -80,4 +82,3 @@ Although the app is still in its early stages it has potential to enhance the ef
   - Else if pain level is in between 4 and 8 the tooth image will turn yellow.
   - Else if pain level is between 8 and 10 the image will change to red.
 * Version 4: Add administrators (possibly dentists/healthcare providers) to provide consented data from users to clinics.
-* Modernize and improve styling and app interface.

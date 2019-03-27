@@ -40,7 +40,7 @@ const Header = ({ user }) => (
           <img src={require('./Dent-logo-react.svg')}/>
         </div>
       </div>
-      <Typography variant="h6" color="inherit">
+      <Typography variant="h6" color="inherit" style={{}}>
             Dent
       </Typography>
       <nav className="main-header">
