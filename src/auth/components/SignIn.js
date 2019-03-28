@@ -49,7 +49,7 @@ class SignIn extends Component {
 
     return (
       <form className='auth-form' onSubmit={this.signIn}>
-        <h3>😁</h3>
+        <h3>😁 Log In to Dent Health</h3>
         <TextField
           id="outlined-email-input-signin"
           className="textField"
@@ -87,7 +87,7 @@ class SignIn extends Component {
           }}
         />
         <Button variant="contained" color="primary" type="submit">
-        Sign In
+        Log In
         </Button>
       </form>
     )

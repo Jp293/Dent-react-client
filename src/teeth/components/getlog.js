@@ -39,11 +39,15 @@ class GetLog extends Component {
 
     return  (
       <React.Fragment>
-        <h4>Dental Logs:</h4>
-        <p>(Please create logs if none are displaying.)</p>
-        <ul>
-          {dents}
-        </ul>
+        <div className="listed-logs">
+          <div className="indv-log">
+            <h4>Dental Logs:</h4>
+            <p>(Please create logs if none are displaying.)</p>
+            <ul>
+              {dents}
+            </ul>
+          </div>
+        </div>
       </React.Fragment>
     )
   }

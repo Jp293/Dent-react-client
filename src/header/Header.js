@@ -16,7 +16,7 @@ const authenticatedOptions = (
 const unauthenticatedOptions = (
   <React.Fragment>
     <Link to="/sign-up" style={{color: 'white'}}>Sign Up</Link>
-    <Link to="/sign-in"style={{color: 'white'}}>Sign In</Link>
+    <Link to="/sign-in"style={{color: 'white'}}>Log In</Link>
   </React.Fragment>
 )
 

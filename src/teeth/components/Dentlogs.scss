@@ -10,12 +10,15 @@
     margin: 20px auto;
   }
 }
+
+.create-div {
+  display: block;
 .create-form {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  margin: 5% auto 0;
+  margin: 3% auto;
   max-width: 300px;
   button {
     align-self: flex-end;
@@ -23,6 +26,7 @@
   }
   .textField {
     margin-bottom: 20px;
+    }
   }
 }
 
@@ -62,5 +66,16 @@ h4 {
     margin-top: 20px;
     .log-button {
       margin-right: 20px;
+  }
+}
+
+.listed-logs {
+  .indv-log {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3% auto;
+    max-width: 300px;
   }
 }

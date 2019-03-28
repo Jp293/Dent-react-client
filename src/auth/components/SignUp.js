@@ -80,6 +80,9 @@ class SignUp extends Component {
     return (
       <form className='auth-form' onSubmit={this.signUp}>
         <h3>Create Account</h3>
+        <p> Dear user because this is a demo application,
+          dummy credentials will work just fine (Ex. Email: Hi@hi.com P: Hi).
+          Avoid using real emails and passwords!</p> 
 
         <TextField
           id="outlined-email-input-signup"
